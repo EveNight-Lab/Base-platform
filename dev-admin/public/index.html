@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Pipeline Inspector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">🧩</div>
+      <div>
+        <h1>Visual Scripting & Pipeline Board</h1>
+        <span>00.NEW Base • Single-Screen Feature Flows</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-action" id="btn-toggle-all" onclick="toggleExpandAll()">
+        <span>모두 펼치기 / 접기</span>
+      </button>
+      <button class="btn-action" id="btn-toggle-store" onclick="toggleStoreHub()">
+        <span>💾 저장소 허브 뷰</span>
+      </button>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme" title="라이트/다크 테마 전환">
+        🌓
+      </button>
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span>LIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legend Bar -->
+  <div class="legend-bar">
+    <div class="legend-items">
+      <span style="color: var(--text-dim); font-weight: 800;">단계 분류:</span>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-trigger);"></span> 🟢 입력 (Trigger)</div>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-decision);"></span> 🟡 판단 (Decision)</div>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-compute);"></span> 🔵 연산 (Compute)</div>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-api);"></span> 🌐 API (Network)</div>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-store);"></span> 💾 저장소 (Store)</div>
+      <div class="legend-item"><span class="legend-chip" style="background: var(--c-render);"></span> 🟣 출력 (Render)</div>
+    </div>
+    <div style="color: var(--text-dim); font-weight: 700;">
+      💡 각 블록을 클릭하면 상세 설명 및 저장소 연동 정보가 펼쳐집니다
+    </div>
+  </div>
+
+  <!-- Domain Filter Bar -->
+  <div class="domain-filter-bar" id="domain-filter-bar"></div>
+
+  <!-- Main Canvas: All Features in One View -->
+  <main id="main-container"></main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

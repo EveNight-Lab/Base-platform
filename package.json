@@ -1,0 +1,41 @@
+{
+  "name": "00-new-base",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:admin": "node dev-admin/server.mjs",
+    "dev:all": "concurrently -n \"APP,ADMIN\" -c \"cyan,magenta\" \"vite\" \"node dev-admin/server.mjs\"",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint && npm run lint:arch",
+    "lint:arch": "node scripts/check-architecture-annotations.mjs",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "check:headless": "node scripts/headless-check.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.45.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^8.3.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "oxlint": "^1.81.0",
+    "puppeteer-core": "^25.10.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  }
+}
